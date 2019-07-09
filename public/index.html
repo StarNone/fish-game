@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FishGame</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #canvas {
+      margin-top: 20px;
+      background: url('./img/game_bg_2_hd.jpg');
+    }
+    body {
+      background: #000;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" height="600" width="800"></canvas>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./js/loadResources.js"></script>
+<script src="./js/$axios.js"></script>
+<script src="./js/sprite.js"></script>
+<script src="./js/fish.js"></script>
+<script>
+  (async function () {
+    await loadResources()
+    console.log(window.__g_resources)
+    const data = __g_resources.fish.fish1
+    var fish1 = new Fish(1)
+    fish1.x = 100
+    fish1.y = 100
+    fish1.p = 2
+    fish1.draw(ctx)
+    var fish2 = new Fish(2)
+    fish2.x = 200
+    fish2.y = 200
+    fish2.p = 4
+    fish2.draw(ctx)
+    var fish3 = new Fish(3)
+    fish3.x = 300
+    fish3.y = 300
+    fish3.p = 8
+    fish3.draw(ctx)
+  })()
+
+  const canvas = document.querySelector('#canvas')
+  const ctx = canvas.getContext('2d')
+</script>
+</html>
